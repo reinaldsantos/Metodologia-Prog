@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro para ver foto do Neymar Jr</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Conexão com o CSS -->
+    <style>
+        body {
+            display: flex; /* Usar flexbox para centralizar */
+            flex-direction: column; /* Alinha os itens em coluna */
+            align-items: center; /* Centraliza horizontalmente */
+            justify-content: center; /* Centraliza verticalmente */
+            height: 100vh; /* Altura total da viewport */
+            margin: 0; /* Remove margens padrão */
+            background-color: #f4f4f4; /* Cor de fundo opcional */
+        }
+        h1 {
+            margin-bottom: 20px; /* Espaçamento abaixo do título */
+        }
+        form {
+            display: flex; /* Usar flexbox para o formulário */
+            flex-direction: column; /* Alinha os campos em coluna */
+            align-items: center; /* Centraliza os campos do formulário */
+        }
+        input {
+            margin: 10px 0; /* Espaçamento entre os campos */
+            padding: 10px; /* Espaçamento interno dos campos */
+            width: 200px; /* Largura dos campos */
+        }
+        button {
+            padding: 10px 20px; /* Espaçamento interno do botão */
+            cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+        }
+        #pagina2Btn {
+            position: fixed; /* Fixa o botão na tela */
+            bottom: 30px; /* Distância do fundo da tela */
+            left: 50%; /* Centraliza horizontalmente */
+            transform: translateX(-50%); /* Ajusta a posição para centralizar */
+            padding: 10px 20px;
+            background-color: #3498db; /* Cor de fundo azul */
+            color: white; /* Cor do texto */
+            border: none;
+            border-radius: 10px; /* Bordas arredondadas */
+            cursor: pointer;
+            text-decoration: none; /* Remove o sublinhado */
+            font-weight: bold;
+        }
+        #pagina2Btn:hover {
+            background-color: #2980b9; /* Cor ao passar o mouse */
+        }
+        #imagemSucesso {
+            display: none; /* Inicialmente escondida */
+            width: 200px; /* Largura da imagem */
+            margin-top: 20px; /* Espaçamento acima da imagem */
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastro para ver foto do Neymar Jr</h1>
+    <form onsubmit="event.preventDefault(); cadastrarUsuario();">
+        <input type="text" id="nome" placeholder="Nome" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <img id="imagemSucesso" src="https://cdn.resfu.com/media/img_news/el-jugador-brasileno--neymar--durante-su-etapa-en-santos--efe.jpg?size=1000x&lossy=1" 
+    alt="Cadastro realizado com sucesso!" style="display: none;">
+
+    <a href="tp.html" id="pagina2Btn">back</a> <!-- Link estilizado como botão -->
+    
+    <script src="script.js"></script> <!-- Conexão com o JavaScript -->
+</body>
+</html>

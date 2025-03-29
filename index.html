@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Princípios Metodológicos da Programação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center; /* Centraliza o título principal */
+        }
+        h3 {
+            margin-top: 20px;
+            text-align: center; /* Centraliza os subtítulos */
+        }
+        h4 {
+            margin-top: 10px;
+            text-align: center;
+        }
+        p {
+            margin: 5px 0 15px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: auto;
+        }
+        #changeBackgroundBtn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #changeBackgroundBtn:hover {
+            background-color: #2980b9;
+        }
+        h1 {
+            text-align: center;
+            transform: translateY(-20px); /* Move o título para cima */
+            animation: fadeIn 1s forwards; /* Aplica a animação */
+        }
+        /* Estilo para o QR Code */
+        #qrCode {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px; /* Ajuste o tamanho do QR Code */
+            height: 100px; /* Ajuste o tamanho do QR Code */
+        }
+        #pagina2Btn {
+            
+            bottom: 20px; /* Distância do fundo da tela */
+            left: 50%; /* Centraliza horizontalmente */
+            transform: translateX(-50%); /* Ajusta a posição para centralizar */
+            padding: 10px 20px;
+            background-color: #3498db; /* Cor de fundo azul */
+            color: white; /* Cor do texto */
+            border: none;
+            border-radius: 5px; /* Bordas arredondadas */
+            cursor: pointer;
+            text-decoration: none; /* Remove o sublinhado */
+            font-weight: bold;
+        }
+        #pagina2Btn:hover {
+            background-color: #2980b9; /* Cor ao passar o mouse */
+        }
+    </style>
+
+    <!-- Inclusão da biblioteca QR Code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+</head>
+<body>
+   
+    <div id="qrCode"></div>
+    <button id="copyLinkBtn" onclick="copyLink()">Copiar Link</button>
+
+    <button id="changeBackgroundBtn" onclick="changeBackgroundColor()">Mudar Cor de Fundo</button>
+
+    <div style="text-align: center;">
+        <p><strong>Disciplina:</strong> Componente de Formação Tecnológica</p>
+        <p><strong>UFCD Nº:</strong> 0806: Princípios metodológicos de programação</p>
+        <p><strong>Código UFCD:</strong> 0806</p>
+        <p><strong>Carga Horária:</strong> 25 horas</p>
+        <p><strong>Professor:</strong> Jhonny Mosquera</p>
+        <p><strong>Ano Letivo:</strong> 2024/2025</p>
+    </div>
+
+    <script>
+        // Gerar QR Code
+        const linkQR = "https://chatgpt.com/share/67e844c3-4d54-800e-9e45-21908d50fa22"; // Link para a conversa
+        new QRCode(document.getElementById("qrCode"), linkQR);
+
+        // Função para copiar o link
+        function copyLink() {
+            const link = "https://chatgpt.com/share/67e844c3-4d54-800e-9e45-21908d50fa22"; // Link da conversa
+            navigator.clipboard.writeText(link).then(() => {
+                alert("Link copiado!");
+            });
+        }
+
+        // Função para mudar a cor de fundo
+        function changeBackgroundColor() {
+            const colors = ['#FF6347', '#98FB98', '#20B2AA', '#FFD700', '#D3D3D3'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+            localStorage.setItem("backgroundColor", randomColor);
+        }
+
+        // Carregar a cor salva ao iniciar
+        window.onload = function () {
+            const savedColor = localStorage.getItem("backgroundColor");
+            if (savedColor) {
+                document.body.style.backgroundColor = savedColor;
+            }
+        };
+    </script>
+
+    <div class="container">
+        <h1>Princípios Metodológicos da Programação</h1>
+
+        <h3>Paradigmas da Programação</h3>
+        <h4>Os paradigmas são estilos de programação que orientam como os programas são estruturados e escritos. Os principais paradigmas incluem:</h4>
+
+        <h4>Programação Imperativa</h4>
+        <p>Baseia-se na sequência de comandos que modificam o estado do programa. Exemplo: C, Python (modo procedural), Java.</p>
+
+        <h4>Programação Orientada a Objetos (POO)</h4>
+        <p>Organiza o código em classes e objetos, promovendo encapsulamento, herança e polimorfismo. Exemplo: Java, C++, Python.</p>
+
+        <h4>Programação Funcional</h4>
+        <p>Baseia-se em funções matemáticas e evita estados mutáveis. Exemplo: Haskell, Lisp, Scala.</p>
+
+        <h4>Programação Lógica</h4>
+        <p>Fundamentada em regras e lógica formal para derivar conclusões. Exemplo: Prolog.</p>
+
+        <h3>Princípios da Boa Programação</h3>
+        <h4>Para desenvolver códigos eficientes e sustentáveis, é essencial seguir alguns princípios fundamentais:</h4>
+
+        <h4>Modularidade</h4>
+        <p>Dividir o programa em módulos menores e independentes.</p>
+
+        <h4>Legibilidade e Clareza</h4>
+        <p>Códigos bem documentados e organizados são mais fáceis de entender e manter.</p>
+
+        <h4>Reutilização de Código</h4>
+        <p>Evitar repetição desnecessária utilizando funções e classes reutilizáveis.</p>
+
+        <h4>Eficiência</h4>
+        <p>Uso otimizado de recursos computacionais, como memória e processamento.</p>
+
+        <h4>Manutenibilidade</h4>
+        <p>Facilitar correções e melhorias no código.</p>
+
+        <h3>Ciclo de Desenvolvimento de Software</h3>
+        <h4>O desenvolvimento de software segue um ciclo estruturado para garantir qualidade e funcionalidade. Algumas metodologias populares incluem:</h4>
+
+        <h4>Modelo Cascata</h4>
+        <p>Processo sequencial em que cada fase depende da conclusão da anterior.</p>
+
+        <h4>Desenvolvimento Ágil</h4>
+        <p>Iterativo e incremental, permitindo adaptações rápidas. Exemplo: Scrum, Kanban.</p>
+
+        <h4>Desenvolvimento Orientado a Testes (TDD)</h4>
+        <p>Primeiro se escrevem os testes, depois o código para satisfazê-los.</p>
+
+        <h3>Boas Práticas de Codificação</h3>
+
+        <h4>Uso de padrões de codificação</h4>
+        <p>Seguir convenções de nomeação e estrutura de código.</p>
+
+        <h4>Documentação</h4>
+        <p>Comentários claros e descrições de funções e classes.</p>
+
+        <h4>Testes</h4>
+        <p>Implementar testes unitários e de integração para garantir funcionalidade.</p>
+
+        <h4>Versionamento</h4>
+        <p>Uso de sistemas como Git para controle de versão e colaboração.</p>
+
+       <a href="tp.html" id="pagina2Btn">Mais</a> <!-- Link estilizado como botão -->
+    </div>
+</body>
+</html>
